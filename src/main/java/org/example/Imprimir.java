@@ -1,7 +1,17 @@
 package org.example;
 
-public class Imprimir {
+import java.util.Scanner;
 
+public class Imprimir {
+    Scanner scannerPadrao = new Scanner(System.in);
+    public static void printComeco(){
+        System.out.println("|---------------------------------------------");
+        System.out.println("|Bem-Vindo ao nosso programa");
+        System.out.println("|---------------------------------------------");
+        System.out.println(" ");
+        System.out.println(" ");
+
+    }
     public static void printDoc(String name, double salario, int anos, double inssFinal, double vtFinal, double bnFinal, double salarioFinal, String porcentagemBn, String  porcentagemVt, String porcentagemInss){
 
         System.out.println("|---------------------------------------------");

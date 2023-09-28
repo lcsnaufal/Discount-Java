@@ -6,25 +6,13 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Scanner scannerPadrao = new Scanner(System.in);
+        Imprimir.printComeco();
 
-        System.out.println("|---------------------------------------------");
-        System.out.println("|Bem-Vindo ao nosso programa");
-        System.out.println("|---------------------------------------------");
-        System.out.println(" ");
-        System.out.println(" ");
-        System.out.println("Insira o nome completo do colaborador");
-        String name = scannerPadrao.nextLine();
+        String name = Entrada.entradaNome();
 
-        System.out.println(" ");
-        System.out.println("Insira os anos de trabalho");
-        int anos = scannerPadrao.nextInt();
+        int anos = Entrada.entradaAnos();
 
-        System.out.println(" ");
-        System.out.println("Insira o salário do colaborador");
-        double salario = scannerPadrao.nextDouble();
-        System.out.println(" ");
-
+        double salario = Entrada.entradaSalario();
 
         int inss = Calculo.validacaoInss(salario);
 
@@ -36,15 +24,14 @@ public class Main {
         String porcentagemVt = Calculo.porcentagemVt;
         String porcentagemBn = Calculo.porcentagemBn;
 
-        double valorFinal = (bn + vt + inss) * salario;
-        double parteDoSalario = Double.valueOf((valorFinal / 100));
-        double salarioFinal = Double.valueOf((parteDoSalario + salario));
 
-        double bnFinal = Double.valueOf((bn * salario) / 100);
-        double vtFinal = Double.valueOf((vt * salario) / 100);
-        double inssFinal = Double.valueOf((inss * salario) / 100);
+        Soma.somaValores(salario, inss, vt, bn);
+        double salarioFinal = Soma.salarioSoma;
+
+        double bnFinal = Soma.bnSoma;
+        double vtFinal = Soma.vtSoma;
+        double inssFinal = Soma.inssSoma;
 
         Imprimir.printDoc(name, salario, anos, inssFinal, vtFinal, bnFinal, salarioFinal, porcentagemBn, porcentagemVt, porcentagemInss);
-
 
     }}
